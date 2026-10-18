@@ -1,0 +1,19 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "installCommand": "npm ci --include=dev",
+  "framework": "nextjs",
+  "env": {
+    "NODE_OPTIONS": "--max-old-space-size=4096"
+  },
+  "crons": [
+    {
+      "path": "/api/automation/run",
+      "schedule": "0 17 * * *"
+    },
+    {
+      "path": "/api/cron/sendlowstock",
+      "schedule": "0 * * * *" 
+    }
+  ]
+}
